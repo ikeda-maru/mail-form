@@ -1,12 +1,12 @@
-<?php
-  if(!empty($_POST)) {
-    echo "<pre>";
-    var_dump($_POST);
-    echo "</pre>";
-  }
-?>
+<?php 
+$pageFlg = 0;
 
-<?php $pageFlg = 0; ?>
+if(!empty($_POST['btn_confirm'])) {
+  $pageFlg = 1;
+} elseif(!empty($_POST['btn-submit'])) {
+  $pageFlg = 2;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,13 +27,12 @@
     <input type="hidden" name="name" value="<?php echo $_POST['name']; ?>">
     <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
     name <?php echo $_POST['name']; ?><br>
-    e0mail <?php echo $_POST['email']; ?><br>
-    <input type="submit" name="btn_submit" value="送信">
+    e-mail <?php echo $_POST['email']; ?><br>
+    <input type="submit" name="btn_confirm" value="確認">
   </form>
 
   <?php elseif($pageFlg === 2) : ?>
     送信完了
-  <?php endif; ?>
-
+  <?php endif ?>
 </body>
 </html>
