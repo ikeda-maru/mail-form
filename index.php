@@ -17,8 +17,8 @@ if(!empty($_POST['btn_confirm'])) {
 <body>
   <?php if($pageFlg === 0) : ?>
   <form method="POST" action="index.php">
-    name <input type="text" name="name"><br>
-    e-mail <input type="email" name="email"><br>
+    name <input type="text" name="name" value="<?php if(!empty($_POST['name'])) {echo $_POST['name'];}  ?>"><br>
+    e-mail <input type="email" name="email" value="<?php if(!empty($POST['email'])) {echo $_POST['email'];} ?>"><br>
     <input type="submit" name="btn_confirm" value="確認">
   </form>
 
@@ -28,7 +28,8 @@ if(!empty($_POST['btn_confirm'])) {
     <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
     name <?php echo $_POST['name']; ?><br>
     e-mail <?php echo $_POST['email']; ?><br>
-    <input type="submit" name="btn_confirm" value="確認">
+    <input type="submit" name="back" value="戻る">
+    <input type="submit" name="btn_confirm" value="送信">
   </form>
 
   <?php elseif($pageFlg === 2) : ?>
