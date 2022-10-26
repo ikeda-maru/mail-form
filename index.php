@@ -35,7 +35,7 @@ session_start();
       }
       echo "</ul>";
     }
-    
+
     if(!isset($_SESSION['csrtToken'])) {
       $_SESSION['csrtToken'] = bin2hex(random_bytes(32));
     }
@@ -108,7 +108,7 @@ session_start();
       <br>
       contact <?php echo h($_POST['contact']); ?><br>
       <input type="submit" name="back" value="戻る">
-      <input type="submit" name="btn_confirm" value="送信">
+      <input type="submit" name="btn_submit" value="送信">
     </form>
 
     <?php else : ?>
