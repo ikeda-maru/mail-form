@@ -72,12 +72,12 @@ session_start();
   <?php elseif($pageFlg === 1) : ?>
     <?php if($_POST['csrf'] === $_SESSION['csrtToken']) : ?>
     <form method="POST" action="index.php">
-      <input type="hidden" name="name" value="<?php echo h($_POST['name']); ?>">
-      <input type="hidden" name="email" value="<?php echo h($_POST['email']); ?>">
-      <input type="hidden" name="url" value="<?php echo h($_POST['url']); ?>">
-      <input type="hidden" name="gender" value="<?php echo h($_POST['gender']); ?>">
-      <input type="hidden" name="age" value="<?php echo h($_POST['age']); ?>">
-      <input type="hidden" name="contact" value="<?php echo h($_POST['contact']); ?>">
+      <input type="hidden" name="name" value="<?php echo $_POST['name']; ?>">
+      <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
+      <input type="hidden" name="url" value="<?php echo $_POST['url']; ?>">
+      <input type="hidden" name="gender" value="<?php echo $_POST['gender']; ?>">
+      <input type="hidden" name="age" value="<?php echo $_POST['age']; ?>">
+      <input type="hidden" name="contact" value="<?php echo $_POST['contact']; ?>">
       <input type="hidden" name="csrf" value="<?php echo $_POST['csrf']; ?>">
       name <?php echo h($_POST['name']); ?><br>
       e-mail <?php echo h($_POST['email']); ?><br>
