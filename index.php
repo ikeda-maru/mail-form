@@ -1,4 +1,7 @@
 <?php 
+header('X-FRAME-OPTIONS:DENT');
+session_start();
+
 require_once('validation.php');
 $errors = validation($_POST);
 
@@ -6,16 +9,13 @@ $pageFlg = 0;
 
 if(!empty($_POST['btn_confirm']) && empty($errors)) {
   $pageFlg = 1;
-} elseif(!empty($_POST['btn-submit'])) {
+} elseif(!empty($_POST['btn_submit'])) {
   $pageFlg = 2;
 }
 
 function h($str) {
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
-
-header('X-FRAME-OPTIONS:DENT');
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +25,11 @@ session_start();
   <title>Form</title>
 </head>
 <body>
-  <?php if($pageFlg === 0) : ?>
+  <?php if ($pageFlg === 0) : ?>
   <?php
     // validation
-    if(!empty($errors) && !empty($_POST['btn-confirm'])) {
-      echo '<ul>';
+    if(!empty($errors) && !empty($_POST['btn_confirm'])) {
+      echo "<ul>";
       foreach($errors as $error) {
         echo '<li>' . $error . '</li>';
       }
@@ -116,11 +116,7 @@ session_start();
     <?php endif; ?>
 
   <?php elseif($pageFlg === 2) : ?>
-    <?php if($_POST['csrf'] === $_SESSION['csrtToken']) : ?>
       送信画面
-    <?php else : ?>
-      <p>session error!!</p>
-    <?php endif; ?>
-  <?php endif ?>
+  <?php endif; ?>
 </body>
 </html>
